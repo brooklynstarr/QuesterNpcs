@@ -22,7 +22,6 @@ import de.kumpelblase2.remoteentities.persistence.serializers.YMLSerializer;
 public class QuesterNpcs extends JavaPlugin {
 	
 	private CommandManager comManager = null;
-	private EntityManager npcManager = null;
 	
 	@Override
 	public void onEnable() {
@@ -88,24 +87,25 @@ public class QuesterNpcs extends JavaPlugin {
 		getLogger().info("Citizens 2 found and hooked...");
 	}
 	
-	private boolean setupRemoteEntities() {
-		try {
-			npcManager = RemoteEntities.createManager(this);
-			npcManager.setEntitySerializer(new YMLSerializer(this));
-			npcManager.setSaveOnDisable(true);
-		}
-		catch (final Exception e) {
-			getLogger().info("RemoteEntities not found...");
-			return false;
-		}
-
-		comManager = new CommandManager(getLogger(), "/qnpc", npcManager);
-		comManager.register(RECommands.class);
-		getServer().getPluginManager().registerEvents(new RemoteEntitiesListener(Quester.getInstance(), npcManager), this);
-		getLogger().info("RemoteEntities found and hooked...");
-
-		int c = npcManager.loadEntities();
-		getLogger().info("Loaded " + c + " entities.");
-		return true;
-	}
+//	private boolean setupRemoteEntities() {
+//		EntityManager npcManager = null;
+//		try {
+//			npcManager = RemoteEntities.createManager(this);
+//			npcManager.setEntitySerializer(new YMLSerializer(this));
+//			npcManager.setSaveOnDisable(true);
+//		}
+//		catch (final Exception e) {
+//			getLogger().info("RemoteEntities not found...");
+//			return false;
+//		}
+//
+//		comManager = new CommandManager(getLogger(), "/qnpc", npcManager);
+//		comManager.register(RECommands.class);
+//		getServer().getPluginManager().registerEvents(new RemoteEntitiesListener(Quester.getInstance(), npcManager), this);
+//		getLogger().info("RemoteEntities found and hooked...");
+//
+//		int c = npcManager.loadEntities();
+//		getLogger().info("Loaded " + c + " entities.");
+//		return true;
+//	}
 }
