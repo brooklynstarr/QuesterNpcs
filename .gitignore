@@ -1,1 +1,9 @@
+/.settings/
+.classpath
+.project
+/buildNumber.properties
+/dependency-reduced-pom.xml
+
+/bin
 /target
+/txt
