@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>me.ragan262</groupId>
-    <artifactId>questernpcs</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>Quester Npcs</name>
-    <description>Npc subplugin for Quester.</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.ragan262</groupId>
+	<artifactId>questernpcs</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>Quester Npcs</name>
+	<description>Npc subplugin for Quester.</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <libs.dir>${project.basedir}/lib</libs.dir>
-        <package.dir>${project.build.directory}</package.dir>
-        <package.name>${project.build.finalName}</package.name>
-    </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<libs.dir>${project.basedir}/lib</libs.dir>
+		<package.dir>${project.build.directory}</package.dir>
+		<package.name>${project.build.finalName}</package.name>
+	</properties>
 
-    <repositories>
-        <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public</url>
-        </repository>
+	<repositories>
+		<repository>
+			<id>bukkit-repo</id>
+			<url>http://repo.bukkit.org/content/groups/public</url>
+		</repository>
 		<repository>
 			<id>citizensapi-repo</id>
 			<url>http://repo.citizensnpcs.co</url>
 		</repository>
-    </repositories>
+	</repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
-            <groupId>me.ragan262</groupId>
-            <artifactId>quester</artifactId>
-            <version>0.7-3-SNAPSHOT</version>
-        </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.bukkit</groupId>
+			<artifactId>bukkit</artifactId>
+			<version>LATEST</version>
+		</dependency>
+		<dependency>
+			<groupId>me.ragan262</groupId>
+			<artifactId>quester</artifactId>
+			<version>0.7-3-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>net.citizensnpcs</groupId>
 			<artifactId>citizensapi</artifactId>
@@ -46,47 +47,47 @@
 			<artifactId>remoteentities</artifactId>
 			<version>1.8-SNAPSHOT</version>
 		</dependency>
-    </dependencies>
+	</dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <targetPath>.</targetPath>
-                <directory>${basedir}/src/main/resources/</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>plugin.yml</include>
-                    <include>config.yml</include>
-                </includes>
-            </resource>
-        </resources>
+	<build>
+		<resources>
+			<resource>
+				<targetPath>.</targetPath>
+				<directory>${basedir}/src/main/resources/</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>plugin.yml</include>
+					<include>config.yml</include>
+				</includes>
+			</resource>
+		</resources>
 
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <addMavenDescriptor>true</addMavenDescriptor>
-                        <manifest>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                    </archive>
-                    <outputDirectory>${package.dir}</outputDirectory>
-                    <finalName>${package.name}</finalName>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>true</addMavenDescriptor>
+						<manifest>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+					</archive>
+					<outputDirectory>${package.dir}</outputDirectory>
+					<finalName>${package.name}</finalName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
