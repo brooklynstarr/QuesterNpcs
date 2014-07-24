@@ -1,0 +1,9 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: raGan
+main: me.ragan262.questernpcs.QuesterNpcs
+softdepend: [Quester, Citizens, RemoteEntities]
+commands:
+    qnpc:
+        description: Main (and only) QuesterNpcs command.
