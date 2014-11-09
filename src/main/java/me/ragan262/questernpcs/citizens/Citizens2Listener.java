@@ -52,7 +52,7 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 		data.getTrait(QuesterTrait.class).setHolderID(-1);
 	}
 	
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onNpcLeftClick(final NPCLeftClickEvent event) {
 		if(event.getNPC().hasTrait(QuesterTrait.class)) {
 			final QuestHolder qh =
@@ -61,7 +61,7 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onNpcRightClick(final NPCRightClickEvent event) {
 		if(event.getNPC().hasTrait(QuesterTrait.class)) {
 			final QuestHolder qh =
