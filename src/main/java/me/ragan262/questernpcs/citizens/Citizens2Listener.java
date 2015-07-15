@@ -1,6 +1,9 @@
 package me.ragan262.questernpcs.citizens;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import me.ragan262.quester.ActionSource;
 import me.ragan262.quester.QConfiguration;
@@ -27,7 +30,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
 public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements Listener {
-	
+
 	public Citizens2Listener(final Quester plugin) {
 		super(plugin);
 	}
@@ -60,9 +63,14 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 			onLeftClick(event.getClicker(), qh, event.getNPC());
 		}
 	}
-	
+
+	private NPCRightClickEvent cancel = null;
+
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onNpcRightClick(final NPCRightClickEvent event) {
+		if(cancel == event) {
+			return;
+		}
 		if(event.getNPC().hasTrait(QuesterTrait.class)) {
 			final QuestHolder qh =
 					holMan.getHolder(event.getNPC().getTrait(QuesterTrait.class).getHolderID());
@@ -104,6 +112,7 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 						profMan.incProgress(player, ActionSource.listenerSource(event), i);
 						if(obj.getCancel()) {
 							event.setCancelled(true);
+							cancel = event;
 						}
 						return;
 					}
