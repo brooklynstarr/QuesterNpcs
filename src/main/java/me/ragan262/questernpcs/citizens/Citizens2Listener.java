@@ -24,6 +24,8 @@ import net.citizensnpcs.api.event.NPCLeftClickEvent;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -123,9 +125,11 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 	
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onNpcDeath(final NPCDeathEvent event) {
-		// npc must be spawned to die, or no?
-		@SuppressWarnings("deprecation")
-		final Player player = event.getNPC().getBukkitEntity().getKiller();
+		Entity entity = event.getNPC().getEntity();
+		if(!(entity instanceof LivingEntity)) {
+			return;
+		}
+		final Player player = ((LivingEntity)entity).getKiller();
 		if(player == null || !Util.isPlayer(player)) {
 			return;
 		}
