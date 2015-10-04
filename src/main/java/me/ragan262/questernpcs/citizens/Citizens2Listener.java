@@ -24,12 +24,12 @@ import net.citizensnpcs.api.event.NPCLeftClickEvent;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.projectiles.ProjectileSource;
 
 public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements Listener {
 
@@ -129,7 +129,24 @@ public class Citizens2Listener extends QuestHolderActionHandler<NPC> implements 
 		if(!(entity instanceof LivingEntity)) {
 			return;
 		}
-		final Player player = ((LivingEntity)entity).getKiller();
+		Player player = ((LivingEntity)entity).getKiller();
+
+		if(player == null && entity.getLastDamageCause() instanceof EntityDamageByEntityEvent) {
+			Entity damager = ((EntityDamageByEntityEvent)entity.getLastDamageCause()).getDamager();
+			if(damager instanceof Tameable) {
+				AnimalTamer owner = ((Tameable)damager).getOwner();
+				if(owner instanceof Player) {
+					player = (Player)owner;
+				}
+			}
+			else if(damager instanceof Projectile) {
+				ProjectileSource shooter = ((Projectile)damager).getShooter();
+				if(shooter instanceof Player) {
+					player = (Player)shooter;
+				}
+			}
+		}
+
 		if(player == null || !Util.isPlayer(player)) {
 			return;
 		}
