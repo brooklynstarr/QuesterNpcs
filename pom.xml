@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.ragan262</groupId>
 	<artifactId>questernpcs</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Quester Npcs</name>
 	<description>Npc subplugin for Quester.</description>
 
@@ -24,32 +24,23 @@
 			<id>citizensapi-repo</id>
 			<url>http://repo.citizensnpcs.co</url>
 		</repository>
-		<repository>
-			<id>remote-entities</id>
-			<url>http://repo.infinityblade.de/remoteentities/snapshots/</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.7.9-R0.2</version>
+			<version>1.9-R0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>me.ragan262</groupId>
 			<artifactId>quester</artifactId>
-			<version>0.7-3-SNAPSHOT</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.citizensnpcs</groupId>
 			<artifactId>citizensapi</artifactId>
 			<version>2.0.13-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>de.kumpelblase2</groupId>
-			<artifactId>remoteentities</artifactId>
-			<version>1.8-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

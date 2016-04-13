@@ -4,8 +4,6 @@ import me.ragan262.quester.Quester;
 import me.ragan262.quester.commandmanager.CommandManager;
 import me.ragan262.questernpcs.citizens.Citizens2Listener;
 import me.ragan262.questernpcs.citizens.QuesterTrait;
-import me.ragan262.questernpcs.remoteentities.RECommands;
-import me.ragan262.questernpcs.remoteentities.RemoteEntitiesListener;
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.trait.TraitFactory;
 import net.citizensnpcs.api.trait.TraitInfo;
@@ -14,10 +12,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import de.kumpelblase2.remoteentities.EntityManager;
-import de.kumpelblase2.remoteentities.RemoteEntities;
-import de.kumpelblase2.remoteentities.persistence.serializers.YMLSerializer;
 
 public class QuesterNpcs extends JavaPlugin {
 	
@@ -86,26 +80,4 @@ public class QuesterNpcs extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new Citizens2Listener(Quester.getInstance()), this);
 		getLogger().info("Citizens 2 found and hooked...");
 	}
-	
-//	private boolean setupRemoteEntities() {
-//		EntityManager npcManager = null;
-//		try {
-//			npcManager = RemoteEntities.createManager(this);
-//			npcManager.setEntitySerializer(new YMLSerializer(this));
-//			npcManager.setSaveOnDisable(true);
-//		}
-//		catch (final Exception e) {
-//			getLogger().info("RemoteEntities not found...");
-//			return false;
-//		}
-//
-//		comManager = new CommandManager(getLogger(), "/qnpc", npcManager);
-//		comManager.register(RECommands.class);
-//		getServer().getPluginManager().registerEvents(new RemoteEntitiesListener(Quester.getInstance(), npcManager), this);
-//		getLogger().info("RemoteEntities found and hooked...");
-//
-//		int c = npcManager.loadEntities();
-//		getLogger().info("Loaded " + c + " entities.");
-//		return true;
-//	}
 }
