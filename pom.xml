@@ -5,7 +5,7 @@
 	<groupId>me.ragan262</groupId>
 	<artifactId>questernpcs</artifactId>
 	<version>1.0.0</version>
-	<name>Quester Npcs</name>
+	<name>QuesterNpcs</name>
 	<description>Npc subplugin for Quester.</description>
 
 	<properties>
@@ -18,7 +18,7 @@
 	<repositories>
 		<repository>
 			<id>bukkit-repo</id>
-			<url>http://repo.bukkit.org/content/groups/public</url>
+			<url>http://maven.elmakers.com/repository/</url>
 		</repository>
 		<repository>
 			<id>citizensapi-repo</id>
